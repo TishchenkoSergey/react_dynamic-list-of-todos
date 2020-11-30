@@ -1,12 +1,651 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <title>Dynamic list of TODOs</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>home-login</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="icon" href="img/icon.png">
+    <!-- Open Sans google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+    <!-- Poppins google font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/feather.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/mdb.min.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="root"></div>
+    <div class="container-fluid">
+      <section class="main-body">
+        <div class="sidebar left-sidebar d-none d-md-block">
+          <div class="logo">
+            <a href="index.html"><img src="img/logo.png"></a>
+          </div>
+          <ul class="main-menu">
+            <li><a href="index.html" class="active"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="#!"><i class="fa fa-music"></i> My Music</a></li>
+            <li><a href="#!"><i class="fa fa-bullseye"></i> Podcast</a></li>
+            <li><a href="#!"><i class="fa fa-play-circle-o"></i> Video</a></li>
+          </ul>
+          <div class="upgrade">
+            <h3>Upgrade to Pro</h3>
+            <p>Ad-free, unlimited offline downloads and create playlist</p>
+            <a href="#!" class="waves-effect waves-light">Get Pro</a>
+          </div>
+          <div class="download">
+            <h3>Download the App</h3>
+            <a href="#!"><img src="img/gp.png"></a>
+            <a href="#!"><img src="img/as.png"></a>
+          </div>
+          <div style="padding-bottom: 220px"></div>
+        </div>
+        <div class="mobile-menu d-block d-md-none">
+          <ul class="mobile-main-menu">
+            <li><a href="index.html" class="active"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#!"><i class="fa fa-play-circle-o"></i>Video</a></li>
+            <li><a href="#!"><i class="fa fa-bullseye"></i>Podcast</a></li>
+            <li><a href="#!"><i class="fa fa-music"></i>My Music</a></li>
+            <li><a href="#!"><i class="fa fa-search"></i>Search</a></li>
+          </ul>
+        </div>
+        <div class="sidebar right-sidebar">
+          <div class="top-part">
+            <div class="src d-none d-md-block">
+              <div id="root"></div>
+            </div>
+            <!-- <div class="search-reasult">
+            	<ul>
+            		<li><a href="#!"><img src="img/artist1.jpg"> <span>Habib wa</span>hid - Prithibir Joto Shukh</a></li>
+            		<li><a href="#!"><img src="img/artist2.jpg"> <span>Habib wa</span>hid - Din Gelo</a></li>
+            		<li><a href="#!"><img src="img/artist3.jpg"> <span>Habib wa</span>hid</a></li>
+            		<li><a href="#!"><img src="img/artist4.jpg"> <span>Habib wa</span>hid - Best of Habib</a></li>
+            		<li><a href="#!"><img src="img/artist5.jpg"> <span>Habib wa</span>hid - Tumi Je Amar Thikana</a></li>
+            		<li><a href="#!"><img src="img/artist6.jpg"> <span>Habib wa</span>hid - Cholo Na</a></li>
+            		<li><a href="#!"><img src="img/artist7.jpg"> <span>Habib wa</span>hid - Doob</a></li>
+            		<li><a href="#!"><img src="img/artist8.jpg"> <span>Habib wa</span>hid - Moner Thikana</a></li>
+            		<li><a href="#!"><img src="img/album4.jpg"> <span>Habib wa</span>hid - Ghum</a></li>
+            		<li><a href="#!"><img src="img/album2.jpg"> <span>Habib wa</span>hid - Didha</a></li>
+            	</ul>
+            </div> -->
+            <div class="mobile-logo d-block d-md-none">
+              <a href="index.html"><img src="img/logo.png" alt="logo"></a>
+            </div>
+            <div class="user-info">
+              <ul>
+                <li><a href="#!" class="open-drop" id="usertab2"><i class="fa fa-bell"></i></a></li>
+                <li><a href="#!" class="open-drop" id="usertab1"><img src="img/user.jpg"></a></li>
+              </ul>
+            </div>
+            <div class="user-menu" id="usertab1show">
+              <ul>
+                <li class="waves-effect">
+                  <a href="my-profile.html">
+                    <div class="d-flex">
+                      <ul class="d-flex user-desc">
+                        <li><img src="img/user.jpg" class="dropdown-user" alt="user"></li>
+                        <li><h4 class="user-name">Johnathon Joe</h4><p class="phone">+8801710 000 000</p></li>
+                      </ul>
+                      <i class="fa fa-chevron-right"></i>
+                    </div>
+                  </a>
+                </li>
+                <li class="waves-effect">
+                  <div class="d-flex upgrade-to-pro">
+                    <div class="user-upgrade">
+                      <h4>Upgrade to pro</h4>
+                      <p>Ad-free, unlimited offline downloads and create playlist</p>
+                    </div>
+                    <a href="#!" class="waves-effect user-get-pro">Get Pro</a>
+                  </div>
+                </li>
+                <li>
+                  <div class="d-flex">
+                    <h4>App push notifications</h4>
+                    <label class="switch">
+                      <input type="checkbox" checked>
+                      <span class="slider round"></span>
+                    </label>
+                  </div>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">
+                    <div class="d-flex">
+                      <h4>Your point</h4>
+                      <h6 class="your-point">100</h6>
+                    </div>
+                  </a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">
+                    <div class="d-flex">
+                      <h4>Rate on Google play</h4>
+                      <i class="fa fa-chevron-right"></i>
+                    </div>
+                  </a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">
+                    <div class="d-flex">
+                      <h4>Contact us</h4>
+                      <i class="fa fa-chevron-right"></i>
+                    </div>
+                  </a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">
+                    <div class="d-flex">
+                      <h4>Terms of use</h4>
+                      <i class="fa fa-chevron-right"></i>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="#!" class="waves-effect user-logout">Log out</a>
+                </li>
+                <li>
+                  <p class="dropdown-copyright">&copy; 2020 Shadhin. All rights reserved.</p>
+                </li>
+              </ul>
+            </div>
+            <div class="user-menu" id="usertab2show">
+              <h4 class="noti-heading">Notifications</h4>
+              <ul class="notification-list">
+                <li class="waves-effect">
+                  <a href="#!">
+                    <div class="d-flex">
+                      <div class="noti-action noti-comment"><img src="img/notification1.jpg" alt="notification"></div>
+                      <div>
+                        <p class="noti-date">Yesterday at 3:00 pm</p>
+                        <h4 class="user-name">Russell responed to your comment, Tap to view details.</h4>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+                <li class="waves-effect">
+                  <a href="#!">
+                    <div class="d-flex">
+                      <div class="noti-action noti-like"><img src="img/notification2.jpg" alt="notification"></div>
+                      <div>
+                        <p class="noti-date">28 April at 6:00 pm</p>
+                        <h4 class="user-name">Shariar ahmed liked to your comment, Tap to view details.</h4>
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+              <div class="notification-drop-btm">
+                <p class="noti-date">22 April at 5:00 pm</p>
+                <h4>Listen Hridpindo on Shadhin music</h4>
+                <p>Lorem ipsum dolor set amit, consectetur adipiscing elit. Lorem ipsum dolor set amit.</p>
+                <img src="img/notification3.jpg">
+              </div>
+            </div>
+          </div>
+            <div class="p30 src src-mobile d-block d-md-none">
+              <h3 class="heading">Search</h3>
+              <form>
+                <input type="" name="" placeholder="Search artist, songs, videos...">
+                <button type="submit" class="btn-submit"><i class="fa fa-search"></i></button>
+                <button class="search-cancil"><img src="img/icon-cross.png"></button>
+              </form>
+            </div>
+          <div class="user-info-mobile d-block d-md-none">
+            <h6 class="title2">Hi there, <span>John!</span></h6>
+            <p class="f14">Good Morning, Listen Free Music</p>
+          </div>
+          <div class="body-content">
+            <div class="top-picks">
+              <h3 class="heading">Top Picks</h3>
+              <div class="owl-carousel" id="carousel1">
+                <div>
+                  <a href="#!">
+                    <img src="img/TopPick1.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/TopPick2.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/TopPick3.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/TopPick1.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/TopPick2.jpg">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="popular-artist">
+              <h3 class="heading">Popular Artist</h3>
+              <div class="owl-carousel" id="carousel2">
+                <div>
+                  <a href="#!">
+                    <img src="img/artist1.jpg">
+                    <div class="carousel-desc">
+                      <h4>Hridoy Khan</h4>
+                      <p><span>0000</span> fans</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/artist2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Asif</h4>
+                      <p><span>0000</span> fans</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/artist3.jpg">
+                    <div class="carousel-desc">
+                      <h4>Habib Wahid</h4>
+                      <p><span>0000</span> fans</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/artist4.jpg">
+                    <div class="carousel-desc">
+                      <h4>Imran</h4>
+                      <p><span>0000</span> fans</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/artist2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Asif</h4>
+                      <p><span>0000</span> fans</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="recently-played">
+              <h3 class="heading">Recently Played</h3>
+              <div class="owl-carousel" id="carousel3">
+                <div>
+                  <a href="#!">
+                    <img src="img/recentlyplayed1.jpg">
+                    <div class="carousel-desc">
+                      <h4>Cats and music</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/recentlyplayed2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/recentlyplayed3.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/recentlyplayed4.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/recentlyplayed2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="featured-playlist">
+              <h3 class="heading">Featured Playlist</h3>
+              <div class="owl-carousel" id="carousel4">
+                <div>
+                  <a href="#!">
+                    <img src="img/fplaylist1.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/fplaylist2.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/fplaylist3.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/fplaylist4.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/fplaylist2.jpg">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="popular-playlist">
+              <h3 class="heading">Popular Playlist</h3>
+              <div class="owl-carousel" id="carousel5">
+                <div>
+                  <a href="#!">
+                    <img src="img/pplaylist1.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pplaylist2.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pplaylist3.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pplaylist4.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pplaylist2.jpg">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="made-for-you">
+              <h3 class="heading">Made for you</h3>
+              <div class="owl-carousel" id="carousel1b">
+                <div>
+                  <a href="#!">
+                    <img src="img/mfy1.jpg">
+                    <div class="carousel-desc">
+                      <h4>My Favorites</h4>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/mfy2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Mix International Hitz</h4>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/mfy3.jpg">
+                    <div class="carousel-desc">
+                      <h4>Summer Vides</h4>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/mfy1.jpg">
+                    <div class="carousel-desc">
+                      <h4>My Favorites</h4>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/mfy3.jpg">
+                    <div class="carousel-desc">
+                      <h4>Summer Vides</h4>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="trending-now">
+              <h3 class="heading">Trending Now</h3>
+              <div class="owl-carousel" id="carousel7">
+                <div>
+                  <a href="#!">
+                    <img src="img/trending1.jpg">
+                    <div class="carousel-desc">
+                      <h4>Cats and music</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/trending2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/trending3.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/trending4.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/trending2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="popupar-videos">
+              <h3 class="heading">Popupar Videos</h3>
+              <div class="owl-carousel" id="carousel8">
+                <div>
+                  <a href="#!">
+                    <img src="img/pvideo1.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music video name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a><!-- 
+                   <video controls poster="img/pvideo1.jpg">
+                    <source src="videos/video1.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                  </video> -->
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pvideo2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music video name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pvideo3.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music video name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pvideo4.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music video name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/pvideo2.jpg">
+                    <div class="carousel-desc">
+                      <h4>Music video name</h4>
+                      <p>Artist name goes here</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="radios">
+              <h3 class="heading">Radio</h3>
+              <div class="owl-carousel" id="carousel9">
+                <div>
+                  <a href="#!">
+                    <img src="img/radio1.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/radio2.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/radio3.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/radio4.jpg">
+                  </a>
+                </div>
+                <div>
+                  <a href="#!">
+                    <img src="img/radio2.jpg">
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="trending-videos">
+              <h3 class="heading">Trending Videos</h3>
+              <div class="owl-carousel" id="carousel10">
+                <div><img src="img/trendingvideo1.jpg"></div>
+                <div><img src="img/trendingvideo2.jpg"></div>
+                <div><img src="img/trendingvideo2.jpg"></div>
+              </div>
+            </div>
+            <footer>
+              <div class="row">
+                <div class="col">
+                  <ul class="first-block">
+                    <li><a href="index.html"><img src="img/logo2.png" class="footer-logo" alt="logo"></a></li>
+                    <li><a href="#!"><i class="fa fa-instagram"></i>Instagram</a></li>
+                    <li><a href="#!"><i class="fa fa-facebook"></i>Facebook</a></li>
+                    <li><a href="#!"><i class="fa fa-twitter"></i>Twitter</a></li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul>
+                    <li><h4 class="footer-title">Who we are?</h4></li>
+                    <li><a href="#!">About us</a></li>
+                    <li><a href="#!">Contact us</a></li>
+                    <li><a href="#!">News</a></li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul>
+                    <li><h4 class="footer-title">Explore</h4></li>
+                    <li><a href="#!">Home</a></li>
+                    <li><a href="#!">Podcast</a></li>
+                    <li><a href="#!">Video</a></li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <ul>
+                    <li><h4 class="footer-title">Legal</h4></li>
+                    <li><a href="#!">Help & Support</a></li>
+                    <li><a href="#!">Terms of services</a></li>
+                    <li><a href="#!">FAQ</a></li>
+                  </ul>
+                </div>
+                <div class="col d-none d-md-block">
+                  <ul>
+                    <li><h4 class="footer-title">Products</h4></li>
+                    <li><a href="#!">Android</a></li>
+                    <li><a href="#!">iOS</a></li>
+                    <li><a href="#!">Web Player</a></li>
+                  </ul>
+                </div>
+                <div class="col-12 d-block d-md-none">
+                  <div class="footer-mobile-app">
+                    <h6>Download the App</h6>
+                    <ul>
+                      <li><a href="#!"><img src="img/gp.png"></a></li>
+                      <li><a href="#!"><img src="img/as.png"></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <p class="copyright">&copy; 2020 Shadhin. All rights reserved.</p>
+            </footer>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="../src/index.js"></script>
+
+    <script src="js/modernizr-3.7.1.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/mdb.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>

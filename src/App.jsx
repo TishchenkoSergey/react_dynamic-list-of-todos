@@ -1,72 +1,69 @@
-import React from 'react';
-import './App.scss';
-import './styles/general.scss';
-import { getTodos } from './api';
-import { TodoList } from './components/TodoList';
-import { SelectedUser } from './components/SelectedUser';
+import React, { useCallback, useMemo, useState } from 'react';
+import debounce from 'lodash.debounce';
 
-class App extends React.Component {
-  state = {
-    todos: [],
-    selectedUserId: 0,
-    todosError: false,
+import { LoadError } from './components/LoadError';
+import { trackList } from './api/api';
+import { Search } from './components/Search';
+import { SearchContent } from './components/SearchContent';
+
+const App = () => {
+  const [loadError, setLoadError] = useState(false);
+  const [loadTracks, setLoadTracks] = useState([]);
+  const [query, setQuery] = useState('');
+  const [visibleSearchBar, setVisibleSearchBar] = useState(false);
+
+  async function tracksFromServer() {
+    try {
+      const response = await trackList();
+
+      setLoadTracks(response.Track.data);
+    } catch (error) {
+      setLoadError(true);
+    }
+  }
+
+  const getTracks = useMemo(() => loadTracks.filter(track => (
+    track.Artist.toLowerCase().includes(query.toLowerCase())
+      || track.title.toLowerCase().includes(query.toLowerCase())
+  )), [query, loadTracks]);
+
+  const loadData = useCallback(debounce(tracksFromServer, 1000), []);
+
+  const handleChange = (track) => {
+    const { value } = track.target;
+
+    setQuery(value);
+    loadData();
+    value === ''
+      ? setVisibleSearchBar(false)
+      : setVisibleSearchBar(true);
   };
 
-  componentDidMount() {
-    getTodos()
-      .then((todos) => {
-        this.setState({
-          todos,
-        });
-      })
-      .catch(() => this.setState({ todosError: true }));
-  }
+  const handleClose = (event) => {
+    event.preventDefault();
+    setQuery('');
+    setVisibleSearchBar(false);
+  };
 
-  selectUser = (selectedUserId) => {
-    this.setState({
-      selectedUserId,
-    });
-  }
-
-  clearSelectedUser = () => {
-    this.setState({ selectedUserId: 0 });
-  }
-
-  render() {
-    const { todos, selectedUserId, todosError } = this.state;
-
-    return (
-      <div className="App">
-        <div className="App__sidebar">
-          {todosError
-            ? (
-              <h2>
-                {`Can't load todos list `}
-              </h2>
-            )
+  return (
+    <>
+      <div className="src d-none d-md-block">
+        <form>
+          {loadError
+            ? <LoadError />
             : (
-              <TodoList
-                todos={todos}
-                selectedUserId={selectedUserId}
-                selectUser={this.selectUser}
+              <Search
+                handleClose={handleClose}
+                handleChange={handleChange}
+                query={query}
               />
             )
           }
-        </div>
-
-        <div className="App__content">
-          <div className="App__content-container">
-            {selectedUserId ? (
-              <SelectedUser
-                userId={selectedUserId}
-                clearSelectedUser={this.clearSelectedUser}
-              />
-            ) : 'Select user to view information'}
-          </div>
-        </div>
+        </form>
       </div>
-    );
-  }
-}
+      {visibleSearchBar && <SearchContent tracks={getTracks} />}
+    </>
+  );
+};
 
 export default App;
